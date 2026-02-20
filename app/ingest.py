@@ -19,18 +19,17 @@ Run once (or re-run whenever your catalog changes):
 import os
 import pandas as pd
 import chromadb
-import ollama
+from sentence_transformers import SentenceTransformer
+_embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # ── Config ────────────────────────────────────────────────────────────────────
 CHROMA_DIR      = "chroma_db"
 COLLECTION_NAME = "courses"
-EMBED_MODEL     = "nomic-embed-text"
 # ─────────────────────────────────────────────────────────────────────────────
 
 
 def get_embedding(text: str) -> list[float]:
-    response = ollama.embeddings(model=EMBED_MODEL, prompt=text)
-    return response["embedding"]
+    return _embedder.encode(text).tolist()
 
 
 # ── Source loaders ────────────────────────────────────────────────────────────
@@ -286,7 +285,7 @@ def main():
 
 
     # Load PSU courses
-    psu_path = "data/dummycourses.csv"
+    psu_path = "data/PSUcourses.csv"
     if os.path.exists(psu_path):
         psu = load_psu_courses(psu_path)
         print(f"Loaded {len(psu)} PSU courses from {psu_path}")
@@ -345,3 +344,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    

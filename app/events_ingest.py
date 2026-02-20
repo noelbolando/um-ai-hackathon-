@@ -10,16 +10,15 @@ Run once (or re-run when the events data changes):
 import os
 import pandas as pd
 import chromadb
-import ollama
+from sentence_transformers import SentenceTransformer
+_embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 CHROMA_DIR      = "chroma_db"
 COLLECTION_NAME = "events"
-EMBED_MODEL     = "nomic-embed-text"
 
 
 def get_embedding(text: str) -> list[float]:
-    response = ollama.embeddings(model=EMBED_MODEL, prompt=text)
-    return response["embedding"]
+    return _embedder.encode(text).tolist()
 
 
 def clean(val) -> str:

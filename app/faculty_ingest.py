@@ -11,13 +11,13 @@ Run once (or re-run whenever your faculty data changes):
 import os
 import pandas as pd
 import chromadb
-import ollama
+from sentence_transformers import SentenceTransformer
+_embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # ── Config ────────────────────────────────────────────────────────────────────
 CSV_PATH        = "data/ross_faculty.csv"
 CHROMA_DIR      = "chroma_db"
 COLLECTION_NAME = "faculty"
-EMBED_MODEL     = "nomic-embed-text"
 
 # Expected CSV columns
 COL_NAME        = "name"
@@ -47,8 +47,7 @@ def build_document(row: pd.Series) -> str:
 
 
 def get_embedding(text: str) -> list[float]:
-    response = ollama.embeddings(model=EMBED_MODEL, prompt=text)
-    return response["embedding"]
+    return _embedder.encode(text).tolist()
 
 
 def main():

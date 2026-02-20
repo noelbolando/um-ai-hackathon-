@@ -34,7 +34,7 @@ def search_faculty(query: str, top_k: int = DEFAULT_TOP_K) -> list[dict]:
         name, titles, bio, profile_url, distance
     """
     collection = _get_collection()
-    query_embedding = embed_query(query)
+    query_embedding = _embedder.encode(query).tolist()
 
     results = collection.query(
         query_embeddings=[query_embedding],

@@ -12,12 +12,13 @@ Works with the unified course collection containing Ross, SEAS, and custom cours
 Each result includes a 'source' field indicating which catalog it came from.
 """
 
+import os
 import chromadb
 from sentence_transformers import SentenceTransformer
 _embedder = SentenceTransformer("all-MiniLM-L6-v2")
 
 # ── Config ────────────────────────────────────────────────────────────────────
-CHROMA_DIR      = "chroma_db"
+CHROMA_DIR      = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chroma_db")
 COLLECTION_NAME = "courses"
 DEFAULT_TOP_K   = 10
 # ─────────────────────────────────────────────────────────────────────────────
@@ -37,7 +38,7 @@ def search_courses(query: str, top_k: int = DEFAULT_TOP_K) -> list[dict]:
         prerequisites, meeting times, credits, source, distance
     """
     collection = _get_collection()
-    query_embedding = embed_query(query)
+    query_embedding = _embedder.encode(query).tolist()
 
     results = collection.query(
         query_embeddings=[query_embedding],

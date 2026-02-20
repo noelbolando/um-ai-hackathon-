@@ -4,9 +4,6 @@ Copy
 # Secrets — never commit
 .streamlit/secrets.toml
 
-# ChromaDB — rebuild on server
-chroma_db/
-
 # Python
 __pycache__/
 *.pyc

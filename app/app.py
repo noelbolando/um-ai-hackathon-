@@ -687,7 +687,7 @@ if st.session_state.pending_query:
         progress.empty()
         st.session_state.messages.append({
             "role": "assistant",
-            "content": f"⚠️ Error: {str(e)}\n\nMake sure Ollama is running and both ingest scripts have been run."
+            "content": f"⚠️ Error: {str(e)}\n\nMake sure all ingest scripts have been run and chroma_db/ is committed to your repo."
         })
         st.session_state.courses = []
         st.session_state.faculty = []

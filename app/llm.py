@@ -17,7 +17,7 @@ import streamlit as st
 from groq import Groq
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-LLM_MODEL = "llama3-8b-8192"
+LLM_MODEL = "llama-3.1-8b-instant"
 _api_key = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
 _client = Groq(api_key=_api_key)
 

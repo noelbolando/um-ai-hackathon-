@@ -2,5 +2,5 @@ __pycache__/
 *.pyc
 *.pyo
 .env
-app/data
-data-scraper/
+data_scraper/
+

@@ -1,6 +1,5 @@
-## UM AI Hackathon ##
+## 2026 University of Michigan AI Hackathon ##
 
-This repo contains all the code for the UM 2026 AI Hackathon
+This repo contains all the code for the University of Michigan's 24-hour AI Hackathon.
 
-Find the live demo at: https://curioapp.streamlit.app/
-
+Check out our [Live Demo!](https://curioapp.streamlit.app/)

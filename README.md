@@ -34,6 +34,8 @@ Curio is a multi-Agentic system that utilizes RAG-based workflows to generate co
 | Vector DB | ChromaDB (persistent) |
 | Parallelism | `ThreadPoolExecutor` for concurrent LLM calls |
 
+<img width="1117" height="567" alt="Screenshot 2026-02-21 at 12 05 43 PM" src="https://github.com/user-attachments/assets/e0422224-be8c-45d3-a128-60e79011ddb5" />
+
 ---
 
 ## Project Structure

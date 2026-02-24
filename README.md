@@ -4,9 +4,10 @@
 ## Your Academic Pathfinder
 
 This project was born out from the 2026 University of Michigan AI Hackathon
+
 Check out our [Live Demo!](https://curioapp.streamlit.app/)
 
-Curios is an AI-powered personal learning coach that helps make the most out of college by curating the most relevant courses, faculty, and campus opportunities aligned with their goals. Given a learning goal — like *"I want to break into consulting"* or *"I want to understand machine learning"* — Curio searches across thousands of courses, faculty profiles, and campus events to surface the most relevant resources and explain why each one fits.
+Curio is an AI-powered personal learning coach that helps make the most out of college by curating the most relevant courses, faculty, and campus opportunities aligned with their goals. Given a learning goal — like *"I want to break into consulting"* or *"I want to understand machine learning"* — Curio searches across thousands of courses, faculty profiles, and campus events to surface the most relevant resources and explain why each one fits.
 
 ---
 
